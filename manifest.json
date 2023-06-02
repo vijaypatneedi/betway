@@ -1,0 +1,42 @@
+{
+    "manifest_version": 3,
+    "name": "Betway Extension",
+    "description": "Betway Extension",
+    "version": "0.0.1",
+    "icons": {
+        "16": "logo/logo-16.png",
+        "48": "logo/logo-48.png",
+        "128": "logo/logo-128.png"
+    },
+    "options_page": "settings/settings.html",
+    "action": {
+        "default_title": "login extension",
+        "default_popup": "popup/popup.html"
+    },
+    "permissions": [
+        "tabs",
+        "scripting",
+        "storage",
+        "notifications",
+        "alarms",
+        "notifications",
+        "https://api.telegram.org/*"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "betway.js"
+            ],
+            "matches": [
+                "https://bdbetway.com/en/sports/*",
+                "https://bdbetway.com/en/sports/cat/cricket"
+            ]
+        }
+    ]
+}
